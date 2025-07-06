@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import Menu from './menu/page';
+import PhotoGallery from './photo-gallery/page';
 
 export default function Home() {
   return (
     <div>
-      <main className="flex flex-row justify-around items-center sm:items-start">
-        <div>
-          <Menu/>
+      <main className="flex flex-row justify-evenly grid-cols-3 items-center p-4 sm:items-start">
+        <div className='w-[15%]'>
+          <Menu />
         </div>
-        <div className='border border-amber-500'>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem amet et, nostrum officia hic ad ipsam placeat cumque, aut minima quasi est distinctio, iste deleniti dolor maxime a officiis incidunt?
+        <div className='flex flex-col items-center justify-center w-[90%]'>
+          <PhotoGallery />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
