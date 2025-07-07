@@ -9,21 +9,18 @@ interface CardPhotoProps {
 
 export default function CardPhoto({ photo }: CardPhotoProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
-                Descrição
-            </header>
+        <div className='border grid grid-template-columns-[25%-1fr-1fr] border-4 border-black'>
 
-            <div className="flex">
+            <div className="w-full h-full flex flex-col items-center justify-center">
                 <Image
                     src={photo.urls.regular}
                     alt={photo.description || "Foto aleatória"}
                     width={100}
                     height={100}
-                    className="rounded-full m-4"
+                    className="w-full h-full object-cover"
                 />
-                <p className="text-lg font-semibold mt-6">{photo.description || "Sem descrição"}</p>
-                <p className="text-lg font-semibold mt-6">{photo.user.username}</p>
+                {/* <p className="text-lg">Descrição: {photo.description || "Sem descrição"}</p>
+                <p className="text-lg">Fotografo: {photo.user.username}</p> */}
             </div>
 
         </div>
