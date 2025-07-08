@@ -15,12 +15,11 @@ export default function CardPhoto({ photo }: CardPhotoProps) {
                 <Image
                     src={photo.urls.regular}
                     alt={photo.description || "Foto aleatória"}
-                    width={100}
-                    height={100}
-                    className="w-full h-full object-cover"
+                    width={180}
+                    height={180}
+                    className="w-full h-full"
+                    loading="lazy"
                 />
-                {/* <p className="text-lg">Descrição: {photo.description || "Sem descrição"}</p>
-                <p className="text-lg">Fotografo: {photo.user.username}</p> */}
             </div>
 
         </div>

@@ -6,7 +6,7 @@ export default interface Photo {
   blur_hash: string;
   likes: number;
   liked_by_user: boolean;
-  description: string | undefined;
+  description: string | null | undefined;
   urls: {
     raw: string;
     full: string;
@@ -28,6 +28,6 @@ export default interface Photo {
       html: string;
       photos: string;
       likes: string;
-    }
-  }
-}
+    };
+  };
+};

@@ -9,10 +9,11 @@ import { FaAlignJustify } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 
+
 export default function Menu() {
     return (
         <nav className="flex flex-col justify-between justify-items-stretch gap-4 p-4">
-            <Link href='/'>
+            <Link href= '/'>
                 <div className="flex flex-row gap-2">
                     <FaHouse />
                     Página Inicial
