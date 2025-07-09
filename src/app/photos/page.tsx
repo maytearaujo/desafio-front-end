@@ -69,7 +69,6 @@ export default function PhotoGallery() {
                   alt={selectedPhoto.description || 'Imagem aleatória'}
                   width={400}
                   height={350}
-                  // className="w-full h-auto object-contain rounded-md"
                 />
               </div>
               <DialogHeader>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Menu from './menu/page';
+import Menu from '../components/menu';
 import Photos from '../app/photos/page';
 
 export default function Home() {

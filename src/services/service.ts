@@ -14,14 +14,14 @@ export const search = async (url: string, setDados: Function) => {
   setDados(response.data);
 };
 
-export const getPhotoById = async (id: string): Promise<Photo | null> => {
-  try {
-    const response = await api.get(`/photos/${id}`, {
-      params: { client_id },
-      headers: { 'Cache-Control': 'no-store' },
-    });
-    return response.data;
-  } catch {
-    return null;
-  }
-};
+// export const getPhotoById = async (id: string): Promise<Photo | null> => {
+//   try {
+//     const response = await api.get(`/photos/${id}`, {
+//       params: { client_id },
+//       headers: { 'Cache-Control': 'no-store' },
+//     });
+//     return response.data;
+//   } catch {
+//     return null;
+//   }
+// };
