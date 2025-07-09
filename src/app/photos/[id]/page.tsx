@@ -23,11 +23,6 @@ export default async function PhotoPage({ params }: PhotoPageProps) {
     <div className="container w-1/3 mx-auto border border-red border-4">
       <h1 className="text-4xl text-center my-4 color-red">Foto Individual</h1>
       <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">
-         <p>
-          {photo.description || 'Sem descrição'}
-         </p>
-        </header>
 
         <Image
           src={photo.urls.regular}
@@ -38,7 +33,8 @@ export default async function PhotoPage({ params }: PhotoPageProps) {
           className="w-full h-full"
         />
         <div className="p-4 text-center text-lg font-semibold">
-          Fotógrafo: {photo.user.username}
+          Fotógrafo: {photo.user.username}            
+          Descrição: {photo.description || 'Sem descrição'}
         </div>
       </div>
     </div>

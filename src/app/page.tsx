@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Menu from './menu/page';
-import PhotoGallery from './photo-gallery/page';
+import Photos from '../app/photos/page';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
           <Menu />
         </div>
         <div className='flex flex-col items-center justify-center w-[90%]'>
-          <PhotoGallery />
+          <Photos />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
