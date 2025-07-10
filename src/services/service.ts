@@ -7,21 +7,9 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
-export const getPhotos = async (url: string, setDados: Function) => {
+export const getPhotos = async (url: string) => {
   const response = await api.get(url, {
     params: { client_id },
-   });
-  setDados(response.data);
+  });
+  return response.data;
 };
-
-// export const getPhotoById = async (id: string): Promise<Photo | null> => {
-//   try {
-//     const response = await api.get(`/photos/${id}`, {
-//       params: { client_id },
-//       headers: { 'Cache-Control': 'no-store' },
-//     });
-//     return response.data;
-//   } catch {
-//     return null;
-//   }
-// };
