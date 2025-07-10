@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini Instagram - Galeria de Fotos
 
-## Getting Started
+Um clone simplificado do Instagram, construído com Next.js e a API da Unsplash. Este projeto exibe uma galeria de fotos, permite a busca por imagens, visualização em um modal e a funcionalidade de favoritar fotos.
 
-First, run the development server:
+**[Acesse a demonstração ao vivo](https://desafio-frontend-sage.vercel.app/)**
+
+## Funcionalidades
+
+*   **Galeria de Fotos:** Exibe uma grade de fotos da API da Unsplash.
+*   **Busca de Imagens:** Permite que os usuários pesquisem por fotos específicas.
+*   **Visualização Detalhada:** Ao clicar em uma foto, um modal é aberto com a imagem em tamanho maior e detalhes como o nome do fotógrafo.
+*   **Sistema de Favoritos:** Os usuários podem marcar e desmarcar fotos como favoritas, e essa seleção persiste durante a sessão do navegador.
+*   **Design Responsivo:** A interface se adapta a diferentes tamanhos de tela, de dispositivos móveis a desktops.
+
+## Tecnologias Utilizadas
+
+*   **Framework:** [Next.js](https://nextjs.org/)
+*   **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+*   **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Componentes de UI:** [shadcn/ui](https://ui.shadcn.com/) (utilizando Radix UI e Lucide React)
+*   **Gerenciamento de Estado:** [Zustand](https://github.com/pmndrs/zustand)
+*   **Requisições HTTP:** [Axios](https://axios-http.com/)
+*   **Ícones:** [React Icons](https://react-icons.github.io/react-icons/)
+*   **API de Imagens:** [Unsplash API](https://unsplash.com/developers)
+
+## Como Rodar o Projeto Localmente
+
+Siga os passos abaixo para configurar e executar o projeto em sua máquina.
+
+### Pré-requisitos
+
+*   [Node.js](https://nodejs.org/en/) (versão 18.x ou superior)
+*   [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) ou [pnpm](https://pnpm.io/)
+*   Uma chave de acesso da API da [Unsplash](https://unsplash.com/developers).
+
+### 1. Clone o Repositório
+
+Primeiro, clone o repositório para a sua máquina local.
+
+```bash
+git clone https://github.com/maytearaujo/desafio-front-end.git
+cd desafio-front-end
+```
+
+### 2. Instale as Dependências
+
+Usando o gerenciador de pacotes de sua preferência:
+
+```bash
+npm install
+# ou
+yarn install
+# ou
+pnpm install
+```
+
+### 3. Configure as Variáveis de Ambiente
+
+Para que a aplicação possa se comunicar com a API da Unsplash, você precisa de uma chave de acesso.
+
+1.  Crie um arquivo chamado `.env.local` na raiz do projeto.
+2.  Adicione a seguinte linha, substituindo `SUA_CHAVE_DE_ACESSO_UNSPLASH` pela sua chave:
+
+    ```env
+    NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=SUA_CHAVE_DE_ACESSO_UNSPLASH
+    NEXT_PUBLIC_API_URL=https://api.unsplash.com/
+    ```
+
+### 4. Rode o Servidor de Desenvolvimento
+
+Agora, você pode iniciar a aplicação em modo de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000 no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build para Produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para criar uma versão otimizada para produção, execute o comando:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+E para iniciar o servidor de produção:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estrutura do Projeto
 
-## Deploy on Vercel
+```
+desafio-front-end/
+├── src/
+│   ├── app/                  # Rotas e páginas do Next.js
+│   │   ├── photos/
+│   │   │   └── page.tsx      # Componente principal da galeria de fotos
+│   │   └── page.tsx          # Página inicial que monta o layout
+│   ├── components/           # Componentes React reutilizáveis
+│   │   ├── ui/               # Componentes de UI (shadcn/ui)
+│   │   ├── cardPhoto.tsx     # Card individual de cada foto
+│   │   ├── menu.tsx          # Menu de navegação lateral
+│   │   └── PhotoModal.tsx    # Modal para visualização de fotos
+│   ├── lib/                  # Funções utilitárias (ex: cn)
+│   ├── models/               # Definições de tipos e interfaces (ex: Photo)
+│   ├── services/             # Lógica de comunicação com APIs externas
+│   └── store/                # Configuração do Zustand para estado global
+├── public/                   # Arquivos estáticos
+└── ...                       # Arquivos de configuração (tailwind, next, etc.)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
