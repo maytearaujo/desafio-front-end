@@ -70,8 +70,8 @@ export default function PhotoGallery() {
   };
 
   return (
-    <div>
-      <h1>Galeria de Fotos</h1>
+    <div className='w-full'>
+      <h1 className='text-3xl bold'>Galeria de Fotos</h1>
       <form onSubmit={handleSearch} className="flex gap-2 mb-4">
         <Input
           type="text"
@@ -83,14 +83,15 @@ export default function PhotoGallery() {
           Buscar
         </Button>
       </form>
+      <div className='w-full'>
       {loading ? (
         <div>Carregando...</div>
       ) : (
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-          w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+          w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 ">
 
           {Array.isArray(photos) && photos.map(photo => (
-            <div key={photo.id} className="relative">
+            <div key={photo.id} className="relative w-full border-2">
 
               <CardPhoto
                 photo={photo}
@@ -116,6 +117,7 @@ export default function PhotoGallery() {
           />
         </section>
       )}
+      </div>
     </div>
   );
 }

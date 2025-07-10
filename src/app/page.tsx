@@ -9,7 +9,7 @@ export default function Home() {
         <div className='w-[15%]'>
           <Menu />
         </div>
-        <div className='flex flex-col items-center justify-center w-[90%]'>
+        <div className='flex flex-col items-center justify-center w-[85%]'>
           <Photos />
         </div>
       </main>

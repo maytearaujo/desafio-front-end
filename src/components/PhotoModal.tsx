@@ -23,7 +23,7 @@ export default function PhotoModal({ photo, onClose }: PhotoModalProps) {
 
     return (
         <Dialog open={!!photo} onOpenChange={(isOpen) => !isOpen && onClose()}>
-            <DialogContent className="max-w-3xl flex">
+            <DialogContent className="w-3xl flex">
                 {photo && (
                     <>
                         <div className="mt-4">
