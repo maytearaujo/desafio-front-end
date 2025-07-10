@@ -58,7 +58,6 @@ export default function PhotoGallery() {
         return;
       }
       const data = await getPhotos(`/search/photos?query=${encodeURIComponent(search)}&per_page=12`);
-      // Se a API retorna { results: [...] }
       setPhotos(data.results || data);
     } catch (error) {
       console.error('Erro ao buscar fotos:', error);
@@ -91,7 +90,6 @@ export default function PhotoGallery() {
             <div key={photo.id} className="relative">
 
               <CardPhoto
-                // key={photo.id}
                 photo={photo}
                 onCardClick={handleCardClick}
               />
