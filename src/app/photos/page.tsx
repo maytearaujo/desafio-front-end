@@ -41,9 +41,10 @@ export default function PhotoGallery() {
     setLoading(true);
     try {
       const data = await getPhotos('/photos?per_page=12');
-      setPhotos(data);
+      setPhotos(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error('Erro ao buscar fotos:', error);
+      setPhotos([]);
     } finally {
       setLoading(false);
     }
@@ -58,9 +59,11 @@ export default function PhotoGallery() {
         return;
       }
       const data = await getPhotos(`/search/photos?query=${encodeURIComponent(search)}&per_page=12`);
-      setPhotos(data.results || data);
+      setPhotos(Array.isArray(data.results) ? data.results : []);
+
     } catch (error) {
       console.error('Erro ao buscar fotos:', error);
+      setPhotos([]);
     } finally {
       setLoading(false);
     }
@@ -86,7 +89,7 @@ export default function PhotoGallery() {
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
           w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
 
-          {photos.map((photo) => (
+          {Array.isArray(photos) && photos.map(photo => (
             <div key={photo.id} className="relative">
 
               <CardPhoto
@@ -94,16 +97,16 @@ export default function PhotoGallery() {
                 onCardClick={handleCardClick}
               />
 
-  <button
-      className="absolute top-2 right-2 text-2xl text-white drop-shadow"
-      onClick={e => {
-        e.stopPropagation();
-        toggleFavorite(photo.id);
-      }}
-      aria-label="Favoritar"
-    >
-      {isFavorite(photo.id) ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
-    </button>
+              <button
+                className="absolute top-2 right-2 text-2xl text-white drop-shadow"
+                onClick={e => {
+                  e.stopPropagation();
+                  toggleFavorite(photo.id);
+                }}
+                aria-label="Favoritar"
+              >
+                {isFavorite(photo.id) ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+              </button>
             </div>
 
           ))}
